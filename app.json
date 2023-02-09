@@ -18,16 +18,27 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.avinashgupta.zoomclone"
     },
     "android": {
+      "package": "com.avinashgupta.zoomclone",
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
+      },
+      "googleSignIn": {
+        "certificateHash": "68:06:56:71:D9:EC:68:36:B3:08:02:4C:BB:84:9E:BE:C0:42:0C:68"
       }
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "extra": {
+      "eas": {
+        "projectId": "d2b1a9b5-35b0-4274-bec1-b7f976986c33"
+      }
+    },
+    "scheme": "zoomclone"
   }
 }

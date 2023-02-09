@@ -10,10 +10,10 @@ const IconMap = {
     "github": "github",
 }
 
-const IconButton = ({ text, onClickHandler, buttonStyles, icon }) => {
+const IconButton = ({ text, onClickHandler, buttonStyles, icon, disabled }) => {
   return (
     <View style={{ width: "100%" }}>
-        <TouchableOpacity style={[styles.button, buttonStyles]} onPress={onClickHandler ? onClickHandler : () => alert("Clicked")}>
+        <TouchableOpacity disabled={disabled} style={[styles.button, buttonStyles]} onPress={onClickHandler ? onClickHandler : () => alert("Clicked")}>
             <Image source={IconMap[icon]} style={{ width: 20, height: 20, resizeMode: 'contain' }} />
             <View
                 style={{

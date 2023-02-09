@@ -3,7 +3,7 @@ import { Text, View, StatusBar } from 'react-native';
 import { useState } from 'react';
 
 // Custom Components
-import { PrimaryButton, SecondaryButton, IconButton, BackNavigator, RNTextInput, OTPInput, Timer } from '../../components/';
+import { BackNavigator, OTPInput, Timer } from '../../components/';
 
 // Styles
 import styles from './styles';
@@ -14,7 +14,7 @@ import globalStyles from '../../globals/globalStyles';
 import Icon from 'react-native-vector-icons/AntDesign';
 
 
-const EmailScreen = ({ navigation, email }) => {
+const EmailScreen = ({ navigation, email, passedOTP }) => {
 
     const [otp, setOTP] = useState({
         0: '',
@@ -25,7 +25,20 @@ const EmailScreen = ({ navigation, email }) => {
         5: '',
     });
 
-    const [error, setError] = useState('Please enter a valid verification code');
+    const [error, setError] = useState('');
+
+    const generateOtp = (otpMap) => {
+        return otpMap[0] + otpMap[1] + otpMap[2] + otpMap[3] + otpMap[4] + otpMap[5];
+    };
+    const validateOTP = () => {
+        const otpString = generateOtp(otp);
+        if (otpString === passedOTP) {
+            navigation.navigate('createaccountscreen');
+        } else {
+            setError('Please enter a valid verification code');
+        }
+    };
+
 
     return (
         <View style={[globalStyles.flex]}>
@@ -50,7 +63,7 @@ const EmailScreen = ({ navigation, email }) => {
                     <Text style={[styles.headerText]}>Check your email for a code</Text>
                     <Text style={[styles.buttonText]}>Please enter the verification code sent to your email address {email}</Text>
                 
-                    <OTPInput otp={otp} setOTP={setOTP}/>
+                    <OTPInput otp={otp} setOTP={setOTP} validateOTP={validateOTP}/>
 
                         <View
                             style={{

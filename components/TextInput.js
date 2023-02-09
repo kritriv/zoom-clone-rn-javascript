@@ -1,9 +1,9 @@
 import { Dimensions, StyleSheet, Text, TextInput, View } from 'react-native';
 import colors from '../globals/colors';
 
-const RNTextInput = ({ maxLength, placeholder, value, onChangeText, secureTextEntry, type }) => {
+const RNTextInput = ({ maxLength, placeholder, value, onChangeText, secureTextEntry, type, containerStyles }) => {
     return (
-        <View style={[styles.container]}>
+        <View style={[styles.container, containerStyles]}>
             <TextInput
                 placeholder={placeholder}
                 placeholderTextColor={colors.grey} 

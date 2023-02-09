@@ -5,6 +5,7 @@ import BackNavigator from './BackNavigator';
 import RNTextInput from './TextInput';
 import OTPInput from './OTPInput';
 import Timer from './Timer';
+import Loader from './Loader';
 
 export { 
     PrimaryButton,
@@ -14,4 +15,5 @@ export {
     IconButton,
     OTPInput,
     Timer,
+    Loader,
 };

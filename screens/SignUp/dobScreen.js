@@ -1,5 +1,5 @@
 // RN Components
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Text, View, StatusBar } from 'react-native';
 
 // Custom Components
@@ -15,6 +15,20 @@ import globalStyles from '../../globals/globalStyles';
 const DOBScreen = ({ navigation }) => {
 
     const [ birthYear, setBirthYear ] = useState('');
+    const [ validator, setValidator ] = useState(false);
+
+    useEffect(() => {
+        if(birthYear.length === 4) {
+            const year = parseInt(birthYear);
+            if(year >= 1900 && year <= 2021) {
+                setValidator(true);
+            } else {
+                setValidator(false);
+            }
+        } else {
+            setValidator(false);
+        }
+    }, [birthYear]);
 
     return (
         <View style={[globalStyles.flex]}>
@@ -60,7 +74,7 @@ const DOBScreen = ({ navigation }) => {
                         }}
                     >
                         {
-                            birthYear.length === 4 ? 
+                            validator ? 
                             <PrimaryButton text={"Continue"} onClickHandler={() => navigation.navigate('emailScreen')} /> :
                             <SecondaryButton text={"Continue"} onClickHandler={() => {}}/>
                         }

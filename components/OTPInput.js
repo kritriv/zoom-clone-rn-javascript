@@ -1,9 +1,9 @@
 import { View, StyleSheet } from 'react-native';
 import { TextInput } from 'react-native-gesture-handler';
 import colors from '../globals/colors';
-import { useRef } from 'react';
+import { useRef, useEffect } from 'react';
 
-const OTPInput = ({ otp, setOTP }) => {
+const OTPInput = ({ otp, setOTP, validateOTP }) => {
 
     const input0 = useRef(null);
     const input1 = useRef(null);
@@ -11,6 +11,12 @@ const OTPInput = ({ otp, setOTP }) => {
     const input3 = useRef(null);
     const input4 = useRef(null);
     const input5 = useRef(null);
+
+    useEffect(() => {
+        if(otp[0] !== '' && otp[1] !== '' && otp[2] !== '' && otp[3] !== '' && otp[4] !== '' && otp[5] !== '') {
+            validateOTP();
+        }
+    }, [otp]);
 
     return (
         <View
@@ -112,7 +118,8 @@ const OTPInput = ({ otp, setOTP }) => {
                             setOTP({...otp, 5: ''});
                             return;
                         }
-                        setOTP({...otp, 5: e})
+                        setOTP({...otp, 5: e});
+                        
                     }}
                     cursorColor={colors.blue}
                     maxLength={1}

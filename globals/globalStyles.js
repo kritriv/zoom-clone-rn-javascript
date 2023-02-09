@@ -18,6 +18,14 @@ const styles = StyleSheet.create({
     },
     colorLightBlack: {
         color: colors.lightBlack,
+    },
+    loadingIndicator:{
+        justifyContent: 'center',
+        alignItems: 'center',
+        zIndex: 1,
+        backgroundColor: 'transparent',
+        width: 50,
+        height: 50,
     }
 });
 

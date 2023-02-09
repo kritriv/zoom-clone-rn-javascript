@@ -1,5 +1,5 @@
 // RN Components
-import { Text, View, StatusBar } from 'react-native';
+import { Text, View, StatusBar, Image } from 'react-native';
 
 // Custom Components
 import { PrimaryButton, SecondaryButton } from '../../components/';
@@ -31,6 +31,17 @@ const OneTimer = ({ navigation }) => {
                     }]}
                 >
                     <Text style={[styles.fontZoom]}>Zoom</Text>
+                    {
+                        /*
+                        <Image source={require('../../assets/images/Z.png')} style={{
+                                width: 200,
+                                height: 200,
+                                resizeMode: 'contain',
+                                bg
+                        }} />
+                        */
+                    }
+                    
                 </View>
                 <View style={[styles.bottomOptions]}>
                    

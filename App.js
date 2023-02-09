@@ -1,5 +1,9 @@
 // Screens
-import { OneTimer, Signup } from './screens';
+import { OneTimer, Signup, SignIn, MainLoggedInScreen } from './screens';
+
+// Loggings Disabling
+import { LogBox } from 'react-native';
+LogBox.ignoreAllLogs();//Ignore all log notifications
 
 // Fonts
 import { useFonts } from 'expo-font';
@@ -9,6 +13,7 @@ import 'react-native-gesture-handler';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 const Stack = createStackNavigator();
+
 
 const App = () => {
 
@@ -28,10 +33,10 @@ const App = () => {
           headerShown: false,  // Hide header
         }}
       >
+        <Stack.Screen name="mainLoginScreen" component={MainLoggedInScreen} />
         <Stack.Screen name="oneTimer" component={OneTimer} />
         <Stack.Screen name="signup" component={Signup} />
-        <Stack.Screen name="signin" component={OneTimer} />
-        <Stack.Screen name="joinMeeting" component={OneTimer} />
+        <Stack.Screen name="signin" component={SignIn} />
       </Stack.Navigator>
     </NavigationContainer>
   );
