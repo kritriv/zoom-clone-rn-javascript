@@ -7,6 +7,12 @@ import { View, Text, TouchableOpacity } from "react-native";
 // Styles
 import colors from "../../globals/colors";
 
+// Screens
+import Meetings from './Meetings';
+import TeamChats from './TeamChats';
+import Contacts from './Contacts';
+import More from './More';
+
 // Icons
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import Entypo from 'react-native-vector-icons/Entypo';
@@ -21,7 +27,7 @@ function CustomizedTabBar({ state, descriptors, navigation }) {
         return (
             <View style={{ 
                     flexDirection: 'row',
-                    backgroundColor: '#20262E' || colors.black,
+                    backgroundColor: '#03001C' || colors.black,
                     elevation: 0,
                     shadowOpacity: 0,
                     height: 70,
@@ -109,10 +115,10 @@ const Tabs = () => {
             }}
             tabBar={props => <CustomizedTabBar {...props} />}
         >
-            <Tab.Screen key={1} name="Meetings" component={() => <Text>METTING</Text>} />
-            <Tab.Screen key={2} name="Team Chat" component={() => <Text>CHAT</Text>} />
-            <Tab.Screen key={3} name="Contacts" component={() => <Text>CONTACTS</Text>} />
-            <Tab.Screen key={4} name="More" component={() => <Text>MORE</Text>} />
+            <Tab.Screen key={1} name="Meetings" component={Meetings} />
+            <Tab.Screen key={2} name="Team Chat" component={TeamChats} />
+            <Tab.Screen key={3} name="Contacts" component={Contacts} />
+            <Tab.Screen key={4} name="More" component={More} />
         </Tab.Navigator>
     );
 }
